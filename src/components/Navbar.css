@@ -1,0 +1,43 @@
+.navbar-menu
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: hsl(0, 0%, 100%);
+    height: 60px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: all 1s;
+}
+.darkmode{
+    color: hsl(0, 0%, 100%);
+    background-color: hsl(209, 23%, 22%);
+  }
+.logo{
+    display: flex;
+    align-items: center;
+    height: 60px;
+    margin-left: 60px;
+}
+.logo>h1
+{
+    margin: 0;
+    font-size: 1.5rem;
+}
+.dl-change{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    user-select:none;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    margin-right: 60px;
+    cursor: pointer;
+}
+.dl-change>p{
+    margin: 0;
+    margin-left: 10px;
+}
+.ionicon{
+    transform: scale(0.1);
+}
