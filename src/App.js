@@ -7,15 +7,6 @@ import Container from './components/Container';
 
 
 function App() {
-  
-
-
-  useEffect(()=>{
-  
-  },[])
-
-
-
   return (
     <div className="App">
       <Navbar/>

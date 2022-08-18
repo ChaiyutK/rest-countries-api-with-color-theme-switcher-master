@@ -4,8 +4,7 @@ import Flagcontainer from './Flagcontainer';
 
 const Container = () => {
   return (
-    <div className='container'>
-        Container
+    <div className='container' id='container'>
         <Flagcontainer/>
     </div>
   )
