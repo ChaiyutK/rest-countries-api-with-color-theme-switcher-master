@@ -3,6 +3,7 @@ import axios from 'axios';
 import "./Flagcontainer.css";
 import {BsSearch} from 'react-icons/bs';
 import { darkThemeContext } from '../App';
+import { Link } from 'react-router-dom';
 
 const Flagcontainer = () => {
     const [flag,setFlag] = useState([]);
@@ -58,7 +59,7 @@ const Flagcontainer = () => {
   return (
     <div className='flagcontainer'>
         <div className="searchfilter">
-            <div id="searchbar" className='searchbar'><BsSearch className='magnifying-glass' size={12}/><input id="searchbar-input" className='flagfilter' type="text" onChange={(event)=>{searchFlag(event)}} /></div>
+            <div id="searchbar" className='searchbar'><BsSearch className='magnifying-glass' size={12}/><input id="searchbar-input" className='flagfilter' type="text" placeholder='Search for a country..' onChange={(event)=>{searchFlag(event)}} /></div>
             <select id="regionfilter" onChange={(event)=>{searchbyregion(event)}}>
                 <option value="none">Filter by Region</option>
                 <option value="africa">Africa</option>
@@ -75,24 +76,33 @@ const Flagcontainer = () => {
             if(darkTheme == 0)
             {
                 return(
+                    
                     <div key={i} className='flaglist'>
+                    <Link to={`/country/${val.name}`}>
                         <img src={val.flags.png} />
+                    </Link>
                         <h3>{val.name}</h3>
                         <p>Population: {(val.population).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                         <p>Region: {val.region}</p>
                         <p>Capital: {val.capital}</p>
+                    
                     </div>
                 )
             }
             else{
                 return(
+                    
                     <div key={i} className='flaglist darktheme'>
+                        <Link to={`/country/${val.name}`}>
                         <img src={val.flags.png} />
+                        </Link>
                         <h3>{val.name}</h3>
                         <p>Population: {(val.population).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                         <p>Region: {val.region}</p>
                         <p>Capital: {val.capital}</p>
+                    
                     </div>
+                    
                 )
             }
         }))

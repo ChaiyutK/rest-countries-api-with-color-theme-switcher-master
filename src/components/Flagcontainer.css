@@ -21,13 +21,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
+    width: 400px;
     height: 50px;
     background-color: white;
     transition: all 1s;
 }
 .searchbar>input{
+    font-family: 'Nunito Sans', sans-serif;
     border: 0px;
+    width: 80%;
     height: fit-content;
     transition: all 1s;
     
@@ -50,8 +52,10 @@
     margin-bottom: 20px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     transition: all 1s;
+    overflow: hidden;
+    border-radius: 5px;
 }
-.flaglist>img{
+.flaglist img{
     width: 100%;
     height: 200px;
 }

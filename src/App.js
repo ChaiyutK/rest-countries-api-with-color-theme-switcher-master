@@ -4,6 +4,8 @@ import { useEffect, useState,createContext} from 'react';
 import axios from 'axios';
 import Navbar from './components/Navbar';
 import Container from './components/Container';
+import { Routes, Route, Link } from "react-router-dom";
+import Country from './components/Country';
 
 export const darkThemeContext = createContext();
 
@@ -15,7 +17,11 @@ function App() {
     <darkThemeContext.Provider value={{darkTheme,setDarkTheme}}>
     <div className="App">
       <Navbar/>
-      <Container/>
+      <Routes>
+        <Route path="/" element={<Container/>}/>
+        <Route path="/country/:countryName" element={<Country/>}/>
+     </Routes>
+      
     </div>
     </darkThemeContext.Provider>
   );
