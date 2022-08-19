@@ -1,10 +1,13 @@
-import React, { useEffect,useState } from 'react';
+import React, { useContext, useEffect,useState } from 'react';
 import axios from 'axios';
 import "./Flagcontainer.css";
 import {BsSearch} from 'react-icons/bs';
+import { darkThemeContext } from '../App';
 
 const Flagcontainer = () => {
     const [flag,setFlag] = useState([]);
+    const {darkTheme,setDarkTheme} = useContext(darkThemeContext);
+
     useEffect(()=>{
         axios.get(`https://restcountries.com/v2/all`).
         then(res=>{
@@ -69,15 +72,29 @@ const Flagcontainer = () => {
         <div className="flaglist-container">
         {
         (flag == "err" ? <p>not found</p>: flag.map((val,i)=>{
-            return(
-                <div key={i} className='flaglist'>
-                    <img src={val.flags.png} />
-                    <h3>{val.name}</h3>
-                    <p>Population: {(val.population).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-                    <p>Region: {val.region}</p>
-                    <p>Capital: {val.capital}</p>
-                </div>
-            )
+            if(darkTheme == 0)
+            {
+                return(
+                    <div key={i} className='flaglist'>
+                        <img src={val.flags.png} />
+                        <h3>{val.name}</h3>
+                        <p>Population: {(val.population).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                        <p>Region: {val.region}</p>
+                        <p>Capital: {val.capital}</p>
+                    </div>
+                )
+            }
+            else{
+                return(
+                    <div key={i} className='flaglist darktheme'>
+                        <img src={val.flags.png} />
+                        <h3>{val.name}</h3>
+                        <p>Population: {(val.population).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                        <p>Region: {val.region}</p>
+                        <p>Capital: {val.capital}</p>
+                    </div>
+                )
+            }
         }))
         }
         </div>
