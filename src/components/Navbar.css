@@ -42,3 +42,25 @@
 .ionicon{
     transform: scale(0.1);
 }
+@media only screen and (max-width: 600px) {
+    .logo{
+        margin-left: 20px;
+    }
+    .logo>h1
+{
+    font-size: 0.5rem;
+}
+.dl-change{
+    margin-right: 20px;
+}
+.dl-change>p{
+    margin-left: 2px;
+    font-size: 0.5rem;
+}
+#moon{
+    scale: 0.7;
+}
+#moonfill{
+    scale: 0.7;
+}
+  }

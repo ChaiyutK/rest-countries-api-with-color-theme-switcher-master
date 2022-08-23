@@ -62,3 +62,21 @@
     background-color: hsl(209, 23%, 22%);
     color: white;
 }
+
+@media only screen and (max-width: 600px) {
+    .flaglist-container{
+        justify-content: center;
+    }
+    .flaglist{
+        width: 80%;
+    }
+    .searchbar{
+        width: 100%;
+    }
+    .searchfilter{
+        flex-wrap: wrap;
+    }
+    #regionfilter{
+        margin-top: 30px;
+    }
+  }
