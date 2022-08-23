@@ -13,17 +13,6 @@ const Navbar = () => {
         {
             document.getElementById("navbar-menu").classList.add("darkmode");
 
-            document.getElementById("container").style.backgroundColor = "hsl(207, 26%, 17%)";
-            document.getElementById("container").style.color = "white";
-
-            document.getElementById("regionfilter").style.backgroundColor = "hsl(209, 23%, 22%)";
-            document.getElementById("regionfilter").style.color = "white";
-            
-            document.getElementById("searchbar").style.backgroundColor = "hsl(209, 23%, 22%)";
-            document.getElementById("searchbar").style.color = "white";
-
-            document.getElementById("searchbar-input").style.backgroundColor = "hsl(209, 23%, 22%)";
-            document.getElementById("searchbar-input").style.color = "white";
 
             document.getElementById("moon").style.display = "none";
             document.getElementById("moonfill").style.display = "block";
@@ -31,18 +20,6 @@ const Navbar = () => {
         }
         else{
             document.getElementById("navbar-menu").classList.remove("darkmode");
-
-            document.getElementById("container").style.backgroundColor = "hsl(0, 0%, 98%)";
-            document.getElementById("container").style.color = "black";
-
-            document.getElementById("regionfilter").style.backgroundColor = "hsl(0, 0%, 100%)";
-            document.getElementById("regionfilter").style.color = "black";
-
-            document.getElementById("searchbar").style.backgroundColor = "hsl(0, 0%, 100%)";
-            document.getElementById("searchbar").style.color = "black";
-
-            document.getElementById("searchbar-input").style.backgroundColor = "hsl(0, 0%, 100%)";
-            document.getElementById("searchbar-input").style.color = "black";
 
             document.getElementById("moon").style.display = "block";
             document.getElementById("moonfill").style.display = "none";

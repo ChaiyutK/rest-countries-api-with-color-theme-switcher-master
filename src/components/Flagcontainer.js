@@ -59,15 +59,26 @@ const Flagcontainer = () => {
   return (
     <div className='flagcontainer'>
         <div className="searchfilter">
-            <div id="searchbar" className='searchbar'><BsSearch className='magnifying-glass' size={12}/><input id="searchbar-input" className='flagfilter' type="text" placeholder='Search for a country..' onChange={(event)=>{searchFlag(event)}} /></div>
-            <select id="regionfilter" onChange={(event)=>{searchbyregion(event)}}>
+        {darkTheme == 0 ? <div id="searchbar" className='searchbar'><BsSearch className='magnifying-glass' size={12}/><input id="searchbar-input" className='flagfilter' type="text" placeholder='Search for a country..' onChange={(event)=>{searchFlag(event)}} /> </div>: <div id="searchbar" className='searchbar darktheme'><BsSearch className='magnifying-glass' size={12}/><input id="searchbar-input" className='flagfilter darktheme' type="text" placeholder='Search for a country..' onChange={(event)=>{searchFlag(event)}} /></div>}            
+        {darkTheme == 0 ? 
+                <select id="regionfilter" className='regionfilter' onChange={(event)=>{searchbyregion(event)}}>
                 <option value="none">Filter by Region</option>
                 <option value="africa">Africa</option>
                 <option value="americas">Americas</option>
                 <option value="asia">Asia</option>
                 <option value="europe">Europe</option>
                 <option value="oceania">Oceania</option>
-            </select>
+                </select> : 
+                <select id="regionfilter" className='regionfilter darktheme' onChange={(event)=>{searchbyregion(event)}}>
+                <option value="none">Filter by Region</option>
+                <option value="africa">Africa</option>
+                <option value="americas">Americas</option>
+                <option value="asia">Asia</option>
+                <option value="europe">Europe</option>
+                <option value="oceania">Oceania</option>
+                </select>
+            } 
+            
         </div>
         
         <div className="flaglist-container">

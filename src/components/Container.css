@@ -1,7 +1,15 @@
+.maincontainer{
+    display: flex;
+    width: 100%;
+}
 .container{
     display: flex;
     justify-content: center;
     min-height: 100vh;
     transition: all 1s;
     background-color: hsl(0, 0%, 98%);
+}
+.darkmodecontainer{
+    color: hsl(0, 0%, 100%);
+    background-color: hsl(207, 26%, 17%);
 }
