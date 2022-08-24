@@ -1,0 +1,48 @@
+.country-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 90%;
+}
+.backbutton-container{
+    display: flex;
+    justify-content: flex-start;
+    height: fit-content;
+    width: 100%;
+    margin-top: 100px;
+}
+.backbutton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+}
+.backarrow{
+    margin-right: 5px;
+}
+.countrydetail-container{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+}
+.countrydetail-container>img{
+    margin-top: 30px;
+    width: 40%;
+    height: 40%;
+}
+.countrydetail-div{
+    display: flex;
+    
+}
+.countrydetail-ul{
+    list-style-type: none;
+    text-align: left;
+}
+.border-container{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 40px;
+}
