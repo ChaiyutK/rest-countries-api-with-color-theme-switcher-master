@@ -9,13 +9,25 @@ import Container from './Container';
 const Country = () => {
   const {darkTheme,setDarkTheme} = useContext(darkThemeContext);
   const [countryData,setCountryData] = useState([]);
+  const [countryBorder,setCountryBorder] = useState([]);
   const {countryName} = useParams();
   
+  
   useEffect(() =>{
-    axios.get(`https://restcountries.com/v3.1/name/${countryName}`).
+    setCountryBorder([]);
+    axios.get(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`).
     then(res=>{
       setCountryData(res.data);
-      console.log("test1");
+      let ind=0;
+      res.data[0].borders.map((val,i)=>{
+        ind++;
+        console.log(ind)
+        axios.get(`https://restcountries.com/v3.1/alpha/${val}`).
+        then(respon =>{
+          setCountryBorder(countryBorder => [...countryBorder,respon.data[0].name.common])
+        })
+      })
+      
     })
   },[countryName])
 
@@ -70,15 +82,19 @@ const Country = () => {
           </div>
             <div className="border-container">
               <b>Border Countries:</b>
-              <Link to={`/country/america`}>
-                    <button>america</button>
-              </Link>
-
-             {/*
-              <Routes>
-                <Route path="/" element={<Container/>}/>
-              </Routes>
-        */}
+              {
+                (val.borders != undefined?
+                  countryBorder.map((val,i)=>{
+                      return(
+                        <Link key={i} to={`/country/${val}`}>
+                          <button>{val}</button>
+                        </Link>);
+                    
+                    
+                  }):
+                  <button></button>)
+                    
+              }
 
             </div>
           </div>
