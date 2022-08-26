@@ -53,7 +53,7 @@ const Country = () => {
     <div className='container' id='container'>
       <div className="country-container">
       <div className="backbutton-container">
-      <Link to={`/`}>
+      <Link className='link-back' to={`/`}>
         <button className='backbutton'>
           <AiOutlineArrowLeft className='backarrow'/>
           <p>Back</p>
@@ -82,32 +82,78 @@ const Country = () => {
           </div>
             <div className="border-container">
               <b>Border Countries:</b>
+              <div className='border-country-container'>
               {
                 (val.borders != undefined?
                   countryBorder.map((val,i)=>{
                       return(
-                        <Link key={i} to={`/country/${val}`}>
-                          <button>{val}</button>
+                        <Link className='link-border' key={i} to={`/country/${val}`}>
+                          <button className='bordercountrybutton'>{val}</button>
                         </Link>);
-                    
-                    
                   }):
-                  <button></button>)
+                  <b>not have border country.</b>)
                     
               }
-
+            </div>
             </div>
           </div>
         </div>
         );
       })}
-      
       </div>
-      
     </div> : 
     <div className='container darkmodecontainer' id='container'>
-      <h1>{countryName}</h1>
-    </div>)
+    <div className="country-container">
+    <div className="backbutton-container">
+    <Link className='link-back' to={`/`}>
+      <button className='backbutton darktheme-country'>
+        <AiOutlineArrowLeft className='backarrow'/>
+        <p>Back</p>
+      </button>
+      </Link>
+    </div>
+    {countryData.map((val,i)=>{
+      return(
+      <div key={i} className="countrydetail-container">
+        <img src={val.flags.png} alt=""/>
+        <div className="countrydetail">
+          <h1>{val.name.common}</h1>
+        <div className='countrydetail-div'>
+        <ul className='countrydetail-ul'>
+            <li><b>Native Name: </b><span>{val.altSpellings[1]}</span></li>
+            <li><b>Population: </b><span>{(val.population).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span></li>
+            <li><b>Region: </b><span>{val.region}</span></li>
+            <li><b>Sub Region: </b><span>{val.subregion}</span></li>
+            <li><b>Capital: </b><span>{val.capital}</span></li>
+          </ul>
+          <ul className='countrydetail-ul'>
+            <li><b>Top Level Domain: </b><span>{val.tld[0]}</span></li>
+            <li><b>Currencies: </b><span>{currencyFn(val.currencies)}</span></li>
+            <li><b>Languages: </b><span>{languageFn(val.languages)}</span></li>
+          </ul>
+        </div>
+          <div className="border-container">
+            <b>Border Countries:</b>
+            <div className='border-country-container'>
+            {
+              (val.borders != undefined?
+                countryBorder.map((val,i)=>{
+                    return(
+                      <Link className='link-border' key={i} to={`/country/${val}`}>
+                        <button className='bordercountrybutton darktheme-country'>{val}</button>
+                      </Link>);
+                }):
+                <b>not have border country.</b>)
+                  
+            }
+          </div>
+          </div>
+        </div>
+      </div>
+      );
+    })}
+    </div>
+  </div> )
   }
   </>
     
